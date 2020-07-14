@@ -1,8 +1,18 @@
 <template>
   <div>
-    <h1 v-if="show">Conditional Rendering if part</h1>
-    <h1 v-else>Conditional Rendering else part</h1>
-    <button v-on:click="display">Toggle Element</button>
+    <h1>For Loop</h1>
+    <table border="1">
+      <tr>
+        <td>Id</td>
+        <td>Name</td>
+        <td>Lastname</td>
+      </tr>
+      <tr v-for="user in users" :key="user.id">
+        <td>{{user.id}}</td>
+        <td>{{user.name}}</td>
+        <td>{{user.lastname}}</td>
+      </tr>
+    </table>
   </div>
 </template>
 
@@ -14,7 +24,15 @@ export default {
     msg: String
   },
   data() {
-    return { show: true };
+    return {
+      users: [
+        { id: 1, name: "Jeff", lastname: "Bezos" },
+        { id: 2, name: "Bill", lastname: "Gates" },
+        { id: 3, name: "Bernard", lastname: "Arnault" },
+        { id: 4, name: "Mark", lastname: "Zuckerberg" },
+        { id: 5, name: "Larry", lastname: "Ellison" }
+      ]
+    };
   },
   methods: {
     display() {
