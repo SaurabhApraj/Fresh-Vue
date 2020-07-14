@@ -1,10 +1,8 @@
 <template>
   <div>
-    <h1>Hello from Home Components.</h1>
-    <h2>{{data}}</h2>
-    <h2>{{msg}}</h2>
-    <button v-on:click="hello">onClick</button>
-    <button v-on:mouseover="mouse">mouseOver</button>
+    <h1 v-if="show">Conditional Rendering if part</h1>
+    <h1 v-else>Conditional Rendering else part</h1>
+    <button v-on:click="display">Toggle Element</button>
   </div>
 </template>
 
@@ -15,12 +13,12 @@ export default {
     data: String,
     msg: String
   },
+  data() {
+    return { show: true };
+  },
   methods: {
-    hello() {
-      alert("Vue");
-    },
-    mouse() {
-      alert("Mouse over");
+    display() {
+      this.show = !this.show;
     }
   }
 };
